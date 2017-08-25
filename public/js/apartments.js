@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 
 
-	$(document).on("click", "button.search", sendSearchInfo(finalQuery));
 
 
 	// this will be called when we need the details page
@@ -10,19 +9,18 @@ $(document).ready(function(){
 
 	var arrayOfAppartments = [];
 
-	var  address = $('.address').val().trim();
-	var city = $('.city').val().trim;
-	var state = $('.state').val().trim;
-	var zip = $('.zip').val().trim;
-	var lat = $('.lat').val().trim;
-	var long = $('.long').val().trim;
-	var image_url = $('.image_url').val().trim;
+	//var  address = $('.address').val().trim();
+	var city = $('#city').val().trim;
+	//var state = $('.state').val().trim;
+	// var zip = $('.zip').val().trim;
+	// var lat = $('.lat').val().trim;
+	// var long = $('.long').val().trim;
+	// var image_url = $('.image_url').val().trim;
 	//var queryURL = "/?";
 
 	// query should look like this: 
-	var finalQuery = "/?address=" + address + "&city=" + city +"&state=" + state + "&zip=" + zip + "&lat=" + lat + "&long=" + long + "&image_url=" + image_url;
-
-
+	//var finalQuery = "/?address=" + address + "&city=" + city +"&state=" + state + "&zip=" + zip + "&lat=" + lat + "&long=" + long + "&image_url=" + image_url;
+	var finalQuery = "sf";
 
 	// this function will send search info to our database
 	// and get the data back
@@ -44,7 +42,8 @@ $(document).ready(function(){
 			//  each object will be a single appartment with information
 
 			//   looping through the array of objects, and getting each object
-			//   
+			//
+			alert(JSON.stringify(receivedArrayOfApartments, null, 2));   
 			receivedArrayOfApartments.forEach(function(apartment){
 				var apartmentDetails = $('div');
 				// we will store the info in this div
@@ -69,7 +68,10 @@ $(document).ready(function(){
 			})
 			
 		})
-	}
+	};
+
+	//"#apartmentSearch", sendSearchInfo(finalQuery));
+	$( "#apartmentSearch" ).click(sendSearchInfo(finalQuery));
 
 
 });

@@ -3,6 +3,12 @@ module.exports = function(sequelize, DataTypes) {
     address: {
       type: DataTypes.STRING
     },
+    price: {
+      type: DataTypes.INTEGER
+    },
+    bedroom: {
+      type: DataTypes.INTEGER
+    },
     city: {
       type: DataTypes.STRING
     },
@@ -10,13 +16,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }, 
     zip: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     },
     lat: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     },
-    long: {
-      type: DataTypes.STRING
+    longitude: {
+      type: DataTypes.INTEGER
     },
     image_url: {
       type: DataTypes.STRING

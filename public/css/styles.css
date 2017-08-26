@@ -1,5 +1,5 @@
 body {
-	background-image: url(../images/city-background.jpg);
+	background-image: url(../assets/images/city-background.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: fixed;
@@ -48,7 +48,6 @@ body {
 }
 
 .carousel {
-	display: none;
 	height: 200px;
 }
 

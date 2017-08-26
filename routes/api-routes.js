@@ -11,75 +11,79 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-	// GET route for getting all of the apartments
-	app.get("/api/apartments", function(req, res) {
-		// findAll returns all entries for a table when used with no options
-		db.Apartment.findAll({}).then(function(dbApartment) {
-		  // We have access to the apartments as an argument inside of the callback function
-		  res.json(dbApartment);
+
+	app.get("/api", function(req,res){
+
+
+		//console.log("This is REQ: " + JSON.stringify(req,null, '\t'));
+		console.log("----------------");
+		console.log("This is req.query: " + JSON.stringify(req.query,null,'\t'));
+
+		var query = {};
+
+		// if(req.query.address) {
+		// 	query.address = req.query.address;
+		// }
+
+		if(req.query.price) {
+			query.price = req.query.price;
+		}
+
+
+		if(req.query.bedroom) {
+			query.bedroom = req.query.bedroom;
+		}
+
+
+		if(req.query.city) {
+			query.city = req.query.city;
+		}
+
+
+		if(req.query.state) {
+			query.state = req.query.state;
+		}
+
+
+		// if(req.query.zip) {
+		// 	query.zip = req.query.zip;
+		// }
+
+
+		// if(req.query.lat) {
+		// 	query.lat = req.query.lat;
+		// }
+
+
+		// if(req.query.longitude) {
+		// 	query.longitude = req.query.longitude;
+		// }
+
+
+		// if(req.query.image_url) {
+		// 	query.image_url = req.query.image_url;
+		// }
+
+
+		console.log("This is query object: " + JSON.stringify(query,null,'\t'));
+
+
+
+		// now you have the query object and you will make a request
+		db.Apartment.findAll({
+
+			where: query
+
+
+		// here you will receive data from the database and just send it to "apartments.js"
+		}).then(function(receivedFromDatabase){
+			res.json(receivedFromDatabase);
+			console.log("This will be receivedFromDatabase and send to the front: " + JSON.stringify(receivedFromDatabase,null,'\t'));
 		});
+
+
+
 	});
-		
-	// Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:zip?", function(req, res) {
-		
-				// If the user provides a specific character in the URL...
-				if (req.params.zip) {
-		
-					// Then display the JSON for ONLY that character.
-					// (Note how we're using the ORM here to run our searches)
-					db.Apartment.findOne({
-						where: {
-							zip: req.params.zip
-						}
-					}).then(function(result) {
-						return res.json(result);
-					});
-				}
-		
-				// Otherwise...
-				else {
-					// Otherwise display the data for all of the characters.
-					// (Note how we're using Sequelize here to run our searches)
-					db.Apartment.findAll({})
-						.then(function(result) {
-							return res.json(result);
-						});
-				}
-		
-			});
 
-	// app.get("/api/:zip?", function(req,res) {
 
-	// 	db.Apartment.findOne({
-	// 		where: {
-	// 			zip: req.params.zip
-	// 		}
-	// 	})
-	// 		.then(function(dbZip) {
-	// 			console.log(dbZip);
-	// 			res.json(dbZip);
-	// 	});
-	// });
-
-	 // If a user sends data to add a new character...
-	 app.post("/api/new", function(req, res) {
-		
-				// Take the request...
-				var apartment = req.body;
-		
-				// Then add the character to the database using sequelize
-				db.Apartment.create({
-					address: apartment.address,
-					price: apartment.price,
-					bedroom: apartment.bedroom,
-					city: apartment.city,
-					state: apartment.state,
-					zip: apartment.zip,
-					lat: apartment.lat,
-					long: apartment.long,
-					image_url: apartment.image_url
-				});
-		
-			});
-}
+};

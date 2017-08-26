@@ -17,55 +17,61 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+	<!--Call to Custom Javascript-->
+	<script type="text/javascript" src="app.js"></script>	
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 </head>
 
 
 <body>
-<div class="container" id="headerDiv">
-	<!--Aptzilla Logo-->
-	<div class="row">
-		<a class="navbar-brand" href="#">
-			<img class="animated rubberBand" alt="Brand" src="images/logo.png">
-		</a>
-	</div>
+	<div class="container" id="headerDiv">
+		<!--Aptzilla Logo-->
+		<div class="row">
+			<a class="navbar-brand" href="#">
+				<img class="animated rubberBand" alt="Brand" src="assets/images/logo.png">
+			</a>
+		</div>
 
-	<div class="row">
-		<br>
-		<br>
-		<center>
-			<h2>Find Your Perfect Apartment...Fast!</h2>
-		</center>
-	</div>
-	
-	<!-- Search Query -->
-	<form role="search">
-		<div class="form-group row form-inline">
-			<div class="col-xs-1"></div>
+		<div class="row">
+			<br>
+			<br>
+			<center>
+				<h2>Find Your Perfect Apartment...Fast!</h2>
+			</center>
+		</div>
 
-		    <div class="col-xs-2">
-		    	<input type="text" class="form-control city" placeholder="San Francisco">
-		  	</div>
+		<!-- Search Query -->
+		<form role="search" id="searchForm">
+			<div class="form-group row form-inline">
+				<div class="col-xs-1"></div>
+
+				<div class="col-xs-2">
+					<input type="text" class="form-control city" placeholder="City" id="city">
+				</div>
 
 		 <!--  	<div class="col-xs-2">
 		    	<input type="text" class="form-control" id="area" placeholder="Area">
-		  	</div> -->
+		    </div> -->
 
-		  	<div class="col-xs-2">
-		    	<input type="text" class="form-control bedroom" placeholder="CA">
-		  	</div>
+		    <div class="col-xs-2">
+		    	<input type="text" class="form-control bedroom" placeholder="Bedroom" id="bedroom">
+		    </div>
 
-		  	<div class="col-xs-2">
-		    	<input type="text" class="form-control zip" id="zip" placeholder="zip">
-		  	</div>
+		    <div class="col-xs-2">
+		    	<input type="text" class="form-control price" placeholder="Price" id="price">
+		    </div>
 
-			<div class="col-xs-2">
-		    	<button type="submit" class="btn btn-primary btn-md" id="apt-search-btn">Submit</button>
-		  	</div> 
+		    <div class="col-xs-2">
+		    	<input type="text" class="form-control state" placeholder="State" id="state">
+		    </div>
+
+		    <div class="col-xs-1">
+		    	<button type="submit" class="btn btn-primary btn-md" id="apartmentSearch">Submit</button>
+		    </div> 
 		</div>
 
 
@@ -144,7 +150,7 @@
 					</div>
 				</label>
 			</div>
- -->
+		-->
 <!-- 
 			<div class="col-xs-3">
 				<label class="form-check-label">Other
@@ -189,49 +195,48 @@
 </div> -->
 
 <!--Card Property Section-->
-	<div class="cards" id="apartments">
-		<div class="row justify-content-center align-self-centeralign-items-center justify-content-between">
-			<div class="col-sm-4">
-		      	<div class="card">
-		      		<img class="card-img-top" src="images/apartment_6.png" alt="Card image cap">
+<div class="cards" id="apartments">
+	<div class="row justify-content-center align-self-centeralign-items-center justify-content-between" id="demoCards">
+		<div class="col-sm-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/images/apartment_6.png" alt="Card image cap">
 
-		      		<div class="card-block">
-		      			<h4 class="card-title"> 1801 Pine St. </h4>
-		      			<p class="card-text">$12,000: 4BD/2BA - Gorgeous 3000 SF apartment in the heart of Lower Pacific Heights in San Francisco. </p>
-					</div>
+				<div class="card-block">
+					<h4 class="card-title"> 1801 Pine St. </h4>
+					<p class="card-text">$12,000: 4BD/2BA - Gorgeous 3000 SF apartment in the heart of Lower Pacific Heights in San Francisco. </p>
 				</div>
 			</div>
+		</div>
 
-			<div class="col-sm-4">
-		      	<div class="card">
-				  <img class="card-img-top" src="images/apartment_7.png" alt="Card image cap">
-				 
-				  <div class="card-block">
-					    <h4 class="card-title"> 500 Mission St.  </h4>
-					    <p class="card-text">$4000: 1BD/1BA - Beautiful 1500 SF 1 bedroom jr and 1 bathroom apartment. Modern amenities and parking included. </p>	    
-		  			</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/images/apartment_7.png" alt="Card image cap">
+
+				<div class="card-block">
+					<h4 class="card-title"> 500 Mission St.  </h4>
+					<p class="card-text">$4000: 1BD/1BA - Beautiful 1500 SF 1 bedroom jr and 1 bathroom apartment. Modern amenities and parking included. </p>	    
 				</div>
 			</div>
+		</div>
 
-			<div class="col-sm-4">
-		      	<div class="card">
-				  <img class="card-img-top" src="images/apartment_8.png" alt="Card image cap">
-				  <div class="card-block">
-					    <h4 class="card-title">601 Washington St. </h4>
-					    <p class="card-text">$5000: 2 BD/1BA - Don't miss this opportunity to live in one of the best neighborhoods in San Francisco. </p>
-					    
-		  			</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/images/apartment_8.png" alt="Card image cap">
+				<div class="card-block">
+					<h4 class="card-title">601 Washington St. </h4>
+					<p class="card-text">$5000: 2 BD/1BA - Don't miss this opportunity to live in one of the best neighborhoods in San Francisco. </p>
+
 				</div>
 			</div>
+		</div>
 
 	</div>
 
 
-<div id="myCarousel" class="carousel slide">
+	<div id="myCarousel" class="carousel slide">
 
-			<div class="carousel-inner">
-
-				<div class="item active">
+		<div class="carousel-inner" id="carousel">
+				<!-- <div class="item active">
 					<div class="card apartment1">
 				  	<img class="card-img-top" src="https://placehold.it/318x180" alt="Card image cap">
 				  		<div class="card-block">
@@ -279,17 +284,17 @@
 						    <p class="card-text">$Price: $2 Bedroom city postal</p>
 					    </div>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 
-				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 
 
 
-	<!--Hidden until Submit is clicked-->
+			<!--Hidden until Submit is clicked-->
 
 	<!-- <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
 
@@ -347,15 +352,15 @@
 	  			</div>
 			</div>
 		  </div>
-	</div> -->
+		</div> -->
 
 
-<!--End Card Property Section-->
+		<!--End Card Property Section-->
 
 
 
 
-<!--Team Member Section-->
+		<!--Team Member Section-->
 <!-- <section class="container team" id="team">
     <div class="row">
     	<div class="col-lg-12 text-center">
@@ -412,7 +417,10 @@
     </div>
 
 </section>
- -->
+-->
+
+<script type="text/javascript" src="js/apartments.js"></script>
+
 
 </body>
 </html>

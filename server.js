@@ -37,3 +37,22 @@ db.sequelize.sync().then(function() {
   });
 });
 
+// app.get("/api/:city", function(req, res) {
+
+//     var city = req.params.city;
+//     connection.query("SELECT * FROM apartments order by id", {city}, function(err, result) {
+//         var html = "<h1>Actors Ordered by ID</h1>";
+//         html +="<ul>";
+
+//         for(var i=0; i<result.length; i++) {
+//             html +="<li><p>ID: " + result[i].id + "</p>";
+//             html += "<p>Name: " + result[i].city  + "</p>";
+//         }
+
+//         html +="</ul>";
+//         res.send(html);
+//     });
+// });
+
+// app.listen(PORT);
+

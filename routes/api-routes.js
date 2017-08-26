@@ -11,75 +11,25 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-	app.get("/api/apartments", function(req,res) {
+	// GET route for getting all of the apartments
+	app.get("/api/apartments", function(req, res) {
+		// findAll returns all entries for a table when used with no options
+		db.Apartment.findAll({}).then(function(dbApartment) {
+		  // We have access to the apartments as an argument inside of the callback function
+		  res.json(dbApartment);
+		});
+	  });
 
-			// we received req.query object
-			// how to create  "where" instance to exclude the empty fields
-			// now need to "split" the query string and use the values
+	app.get("/api/:zip", function(req,res) {
 
-			//console.log(req.query);
-
-			// var req = req;
-
-			// encode the url string so you eliminate  "&" etc...
-			// req = decodeURIComponent(req);
-
-			// console.log(req);
-
-			// var query = {};
-
-			// if(req.query.address) {
-			// 	query.address = req.query.address;
-			// }
-
-			// if(req.query.city) {
-			// 	query.city = req.query.city;
-			// }
-
-			// if(req.query.state){
-			// 	query.state = req.query.state;
-			// }
-
-			// if(req.query.zip) {
-			// 	query.zip = req.query.zip;
-			// }
-
-
-			// if(req.query.lat) {
-			// 	query.lat = req.query.lat;
-			// }
-
-			// if(req.query.long) {
-			// 	query.long = req.query.long;
-			// }
-
-			// if(req.query.image_url) {
-			// 	query.image_url = req.query.image_url;
-			// }
-
-			// console.log(query);
-
-
-		db.Apartment.findAll({})
-			.then(function(receivedSearchInfo) {
-				console.log(receivedSearchInfo);
-				res.json(receivedSearchInfo);
-			});
-
+		db.Apartment.findOne({
+			where: {
+				zip: req.params.zip
+			}
+		})
+			.then(function(dbZip) {
+				console.log(dbZip);
+				res.json(dbZip);
+		});
 	});
-
-	// app.get("/api/:city?", function(req, res) {
-	// 	var city = req.params.city;
-	// 	db.Apartment.findAll({
-	// 		// here we ill use our query var
-	// 		// where: {
-	// 		// 	city
-	// 		// }
-
-	// 	}).then(function(receivedSearchInfo) {
-	// 		console.log(receivedSearchInfo);
-	// 		res.json(receivedSearchInfo);
-	// 	});
-	// });
-
 }

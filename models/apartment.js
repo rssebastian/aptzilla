@@ -9,6 +9,9 @@ module.exports = function(sequelize, DataTypes) {
     lat: DataTypes.INTEGER,
     longitude: DataTypes.INTEGER,
     image_url: DataTypes.STRING
-  });
+  }, {
+    timestamps: false,
+    freezeTableName: true
+});
   return Apartment;
 };

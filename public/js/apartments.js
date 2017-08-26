@@ -41,9 +41,7 @@ $(document).ready(function(){
 			//  received data should be in a json format, array of objects
 			//  each object will be a single appartment with information
 
-			//   looping through the array of objects, and getting each object
-			//
-			alert(JSON.stringify(receivedArrayOfApartments, null, 2));   
+			//   looping through the array of objects, and getting each object  
 			receivedArrayOfApartments.forEach(function(apartment){
 				var apartmentDetails = $('div');
 				// we will store the info in this div
